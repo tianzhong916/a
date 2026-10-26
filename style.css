@@ -1,0 +1,54 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;--bg:#0c0e12;--panel:#171a21;--panel2:#20242e;--line:#2b303b;--text:#f3f4f7;--muted:#a1a8b7;--accent:#8b5cf6;--accent2:#6d4aff}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#19152a 0%,var(--bg) 42rem);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+button,input{font:inherit}
+button{cursor:pointer}
+.topbar{display:flex;align-items:center;gap:12px;padding:16px max(16px,calc((100vw - 760px)/2));border-bottom:1px solid #ffffff10;background:#0c0e12d9;position:sticky;top:0;z-index:20;backdrop-filter:blur(14px)}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#a78bfa,#6d4aff);display:grid;place-items:center;font-size:18px;box-shadow:0 5px 24px #754bff40}
+.brand-copy{display:flex;flex-direction:column;gap:1px}.brand-copy strong{font-size:17px;letter-spacing:.2px}.brand-copy span{font-size:11px;color:var(--muted)}
+.icon-btn{margin-left:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:white;padding:8px 12px}
+main{width:min(100% - 24px,720px);margin:18px auto 28px;display:flex;flex-direction:column;gap:14px}
+.panel{background:linear-gradient(145deg,#1a1d25,#14161c);border:1px solid #ffffff10;border-radius:18px;padding:16px;box-shadow:0 12px 30px #0002}
+.section-title{display:flex;align-items:center;gap:9px;margin-bottom:14px}.section-title h1,.section-title h2{font-size:16px;margin:0;font-weight:750}.dot{width:8px;height:8px;border-radius:50%;background:#a78bfa;box-shadow:0 0 12px #a78bfa90}.dot.purple{background:#c084fc}.dot.green{background:#34d399}
+.service-switch{display:grid;grid-template-columns:1fr 1fr;background:#0e1015;border:1px solid var(--line);padding:4px;border-radius:12px;gap:4px;margin-bottom:16px}
+.service{border:0;border-radius:9px;padding:11px 8px;background:transparent;color:var(--muted);font-weight:700;font-size:13px}
+.service.active{background:#312653;color:#e9ddff;box-shadow:inset 0 0 0 1px #8b5cf655}
+label{display:block;font-size:12px;color:#c5cad5;margin-bottom:7px}
+.input-row{display:flex;gap:8px}
+input:not([type=range]){min-width:0;width:100%;background:#0d0f14;border:1px solid #343946;color:var(--text);border-radius:11px;padding:12px 13px;outline:none}
+input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf622}
+.primary{border:0;border-radius:11px;padding:0 17px;background:linear-gradient(135deg,#9b7bff,#7047ef);color:white;font-weight:750;white-space:nowrap;box-shadow:0 5px 18px #754bff25}
+.hint{font-size:11px;line-height:1.6;color:var(--muted);margin:9px 0 0}
+.demo-note{margin-top:12px;border-radius:10px;padding:10px 11px;background:#292116;border:1px solid #75551f50;color:#f3cb83;font-size:11px;line-height:1.5}
+.player-card{padding:12px}
+.player-head,.player-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:3px 3px 11px;font-size:12px}
+.live-badge{font-size:9px;font-weight:900;letter-spacing:1px;background:#d92d55;color:white;padding:4px 6px;border-radius:5px;margin-right:7px}
+.muted{color:var(--muted)}
+.small-btn{background:#252935;color:#dfe2eb;border:1px solid #363c4b;border-radius:8px;padding:7px 10px;font-size:11px}
+.player-shell{position:relative;width:100%;aspect-ratio:16/9;background:#050608;overflow:hidden;border-radius:12px;isolation:isolate}
+/* Twitch embed height minimum */
+.player-shell.twitch-mode{aspect-ratio:auto;height:300px}
+.player-mount,.player-mount iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#a4a9b8;text-align:center;padding:20px;z-index:1;background:radial-gradient(ellipse at center,#242033,#090a0d 75%)}
+.placeholder strong{color:#f0edf8;font-size:14px}.placeholder span{font-size:11px;line-height:1.5}
+.placeholder-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:16px;background:#7652e82b;color:#c4b5fd;font-size:21px;margin-bottom:3px}
+.danmaku-layer{position:absolute;inset:0;z-index:5;overflow:hidden;pointer-events:none}
+.danmaku{position:absolute;left:100%;white-space:nowrap;font-weight:850;line-height:1.15;color:#fff;text-shadow:1px 2px 3px #000, -1px -1px 2px #000,1px -1px 2px #000,-1px 1px 2px #000;will-change:transform;animation-name:fly;animation-timing-function:linear;animation-fill-mode:forwards}
+@keyframes fly{from{transform:translateX(0)}to{transform:translateX(-150vw)}}
+.player-overlay-top{position:absolute;left:9px;right:9px;top:8px;display:flex;justify-content:space-between;align-items:center;z-index:7;pointer-events:none}
+.player-overlay-top>*{pointer-events:auto}
+#overlayLabel{font-size:9px;background:#0009;color:#eee;border:1px solid #ffffff20;padding:5px 7px;border-radius:6px;backdrop-filter:blur(6px)}
+.overlay-toggle{font-size:10px;color:#e7ddff;background:#241b3dcc;border:1px solid #a78bfa55;padding:6px 8px;border-radius:7px}
+.player-foot{padding:10px 3px 1px;font-size:10px;color:var(--muted)}
+.text-btn{border:0;background:none;color:#c4b5fd;font-size:11px;padding:5px}
+.setting{padding:12px 0;border-top:1px solid #ffffff0b}.setting:first-of-type{border-top:0}
+.setting-label{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.setting-label label{font-size:12px;color:#e0e3eb;margin:0}
+output{font-size:11px;color:#c4b5fd;background:#2a2240;padding:4px 8px;border-radius:6px;min-width:48px;text-align:center}
+input[type=range]{width:100%;accent-color:#a78bfa;margin:14px 0 3px}
+.range-ends{display:flex;justify-content:space-between;color:#777f90;font-size:10px}
+.send .hint{margin:-4px 0 12px}
+footer{text-align:center;color:#727989;font-size:10px;line-height:1.6;padding:6px 12px 18px}
+@media(min-width:600px){main{margin-top:24px;gap:16px}.panel{padding:20px}.player-card{padding:14px}.topbar{padding-top:16px;padding-bottom:16px}}
+@media(max-width:360px){main{width:calc(100% - 16px)}.panel{padding:12px}.brand-copy span{font-size:10px}.primary{padding:0 12px}.player-card{padding:9px}}
